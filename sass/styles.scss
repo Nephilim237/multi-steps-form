@@ -1,0 +1,184 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;500;600;700;800;900;1000&display=swap');
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+:root {
+    --step-number: 4;
+    --container-width: 480px;
+    --font-color: #faf6ff;
+    --dark-color: #3c3f42;
+    --error-color: #f51a63;
+
+    @media screen and (max-width: 660px) {
+        --container-width: 360px;
+    }
+
+    @media screen and (max-width: 490px) {
+        --container-width: 96%;
+    }
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.65)),
+        url('../img/bg3.jpg') center center no-repeat;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+button {
+    color: var(--font-color) !important;
+    background-color: var(--error-color) !important;
+    border: 1px solid darken($color: #f51a63, $amount: 10) !important;
+    transition: background-color 0.3s ease-in-out !important;
+
+    &:hover {
+        background-color: var(--font-color) !important;
+        color: var(--error-color) !important;
+    }
+}
+
+.container {
+    width: var(--container-width);
+    // text-align: center;
+    background-color: transparentize($color: #232f3a, $amount: 0.35);
+    padding: 48px;
+
+    header {
+        font-size: 40px;
+        font-weight: 600;
+        margin-bottom: 32px;
+        color: var(--font-color);
+        text-align: center;
+    }
+}
+
+.cc-progress-bar {
+    display: flex;
+    margin: 36px 0;
+    user-select: none;
+
+    .step {
+        text-align: center;
+        width: 100%;
+        position: relative;
+
+        &:last-child {
+            .bullet::before,
+            .bullet::after {
+                display: none;
+            }
+        }
+
+        p {
+            font-weight: 500;
+            font-size: 18px;
+            margin-bottom: 8px;
+            @media screen and (max-width: 660px) {
+                display: none;
+            }
+
+            &.active {
+                color: var(--error-color);
+            }
+        }
+
+        .bullet {
+            position: relative;
+            display: inline-flex;
+            justify-content: center;
+            align-items: center;
+            width: 36px;
+            height: 36px;
+            border: 1px solid var(--font-color);
+            border-radius: 50%;
+            font-weight: 500;
+
+            &.active {
+                color: var(--font-color);
+                background-color: var(--error-color);
+                border-color: var(--error-color);
+            }
+
+            &::before,
+            &::after {
+                position: absolute;
+                content: '';
+                width: 44px;
+                height: 4px;
+                right: -52px;
+                background: var(--font-color);
+                @media screen and (max-width: 660px) {
+                    display: none;
+                }
+            }
+
+            &.active::after {
+                background: var(--error-color);
+                transform: scaleX(0);
+                transform-origin: left;
+                animation: animate 0.3s linear forwards;
+            }
+
+            span {
+                font-size: 16px;
+            }
+        }
+    }
+}
+
+.form-container {
+    width: 100%;
+    overflow: hidden;
+
+    form {
+        display: flex;
+        width: calc(100% * var(--step-number));
+        transition: transform 0.15s ease-in-out;
+
+        & > * {
+            color: var(--font-color);
+        }
+
+        .page {
+            width: calc(100% / var(--step-number));
+
+            h5 {
+                text-align: start;
+                font-size: 28px;
+                margin-block-end: 32px;
+                @media screen and (max-width: 660px) {
+                    font-size: 24px;
+                    margin-block-end: 8px;
+                }
+            }
+        }
+
+        label {
+            font-weight: 600;
+        }
+
+        input {
+            border-radius: 0;
+        }
+
+        input.invalid {
+            border-color: var(--error-color);
+        }
+    }
+}
+
+@keyframes animate {
+    100% {
+        transform: scaleX(1);
+    }
+}

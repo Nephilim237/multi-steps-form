@@ -1,0 +1,171 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;500;600;700;800;900;1000&display=swap");
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Nunito Sans", sans-serif;
+}
+
+:root {
+  --step-number: 4;
+  --container-width: 480px;
+  --font-color: #faf6ff;
+  --dark-color: #3c3f42;
+  --error-color: #f51a63;
+}
+@media screen and (max-width: 660px) {
+  :root {
+    --container-width: 360px;
+  }
+}
+@media screen and (max-width: 490px) {
+  :root {
+    --container-width: 96%;
+  }
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background: linear-gradient(rgba(0, 0, 0, 0.15), rgba(0, 0, 0, 0.65)), url("../img/bg3.jpg") center center no-repeat;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+button {
+  color: var(--font-color) !important;
+  background-color: var(--error-color) !important;
+  border: 1px solid #d3094c !important;
+  transition: background-color 0.3s ease-in-out !important;
+}
+button:hover {
+  background-color: var(--font-color) !important;
+  color: var(--error-color) !important;
+}
+
+.container {
+  width: var(--container-width);
+  background-color: rgba(35, 47, 58, 0.65);
+  padding: 48px;
+}
+.container header {
+  font-size: 40px;
+  font-weight: 600;
+  margin-bottom: 32px;
+  color: var(--font-color);
+  text-align: center;
+}
+
+.cc-progress-bar {
+  display: flex;
+  margin: 36px 0;
+  user-select: none;
+}
+.cc-progress-bar .step {
+  text-align: center;
+  width: 100%;
+  position: relative;
+}
+.cc-progress-bar .step:last-child .bullet::before,
+.cc-progress-bar .step:last-child .bullet::after {
+  display: none;
+}
+.cc-progress-bar .step p {
+  font-weight: 500;
+  font-size: 18px;
+  margin-bottom: 8px;
+}
+@media screen and (max-width: 660px) {
+  .cc-progress-bar .step p {
+    display: none;
+  }
+}
+.cc-progress-bar .step p.active {
+  color: var(--error-color);
+}
+.cc-progress-bar .step .bullet {
+  position: relative;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  width: 36px;
+  height: 36px;
+  border: 1px solid var(--font-color);
+  border-radius: 50%;
+  font-weight: 500;
+}
+.cc-progress-bar .step .bullet.active {
+  color: var(--font-color);
+  background-color: var(--error-color);
+  border-color: var(--error-color);
+}
+.cc-progress-bar .step .bullet::before, .cc-progress-bar .step .bullet::after {
+  position: absolute;
+  content: "";
+  width: 44px;
+  height: 4px;
+  right: -52px;
+  background: var(--font-color);
+}
+@media screen and (max-width: 660px) {
+  .cc-progress-bar .step .bullet::before, .cc-progress-bar .step .bullet::after {
+    display: none;
+  }
+}
+.cc-progress-bar .step .bullet.active::after {
+  background: var(--error-color);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: animate 0.3s linear forwards;
+}
+.cc-progress-bar .step .bullet span {
+  font-size: 16px;
+}
+
+.form-container {
+  width: 100%;
+  overflow: hidden;
+}
+.form-container form {
+  display: flex;
+  width: calc(100% * var(--step-number));
+  transition: transform 0.15s ease-in-out;
+}
+.form-container form > * {
+  color: var(--font-color);
+}
+.form-container form .page {
+  width: calc(100% / var(--step-number));
+}
+.form-container form .page h5 {
+  text-align: start;
+  font-size: 28px;
+  margin-block-end: 32px;
+}
+@media screen and (max-width: 660px) {
+  .form-container form .page h5 {
+    font-size: 24px;
+    margin-block-end: 8px;
+  }
+}
+.form-container form label {
+  font-weight: 600;
+}
+.form-container form input {
+  border-radius: 0;
+}
+.form-container form input.invalid {
+  border-color: var(--error-color);
+}
+
+@keyframes animate {
+  100% {
+    transform: scaleX(1);
+  }
+}
+
+/*# sourceMappingURL=styles.css.map */

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google material icon -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp"
+        rel="stylesheet">
+
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <title>Document</title>
+</head>
+
+<body>
+    <div class="container">
+        <header>Inscription</header>
+
+        <div class="cc-progress-bar text-light">
+            <div class="step">
+                <p>Nom</p>
+                <div class="bullet">
+                    <span class="material-icons-sharp">
+                        person
+                    </span>
+                </div>
+            </div>
+            <div class="step">
+                <p>Adresse</p>
+                <div class="bullet">
+                    <span class="material-icons-sharp">
+                        call
+                    </span>
+                </div>
+            </div>
+            <div class="step">
+                <p class="">Naissance</p>
+                <div class="bullet ">
+                    <span class="material-icons-sharp">
+                        today
+                    </span>
+                </div>
+            </div>
+            <div class="step">
+                <p>Submit</p>
+                <div class="bullet">
+                    <span class="material-icons-sharp">
+                        settings
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div class="form-container">
+            <form>
+                <!-- First step -->
+                <div class="page">
+                    <h5>Informations basiques:</h5>
+                    <div class="mb-3">
+                        <label class="form-label">Prenom</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="mb-4">
+                        <label class="form-label">Nom</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="mb-3 d-flex justify-content-center gap-3">
+                        <button type=" button" class="btn w-100 rounded-0 next">Suivant</button>
+                    </div>
+                </div>
+
+                <!-- Second sstep -->
+                <div class="page">
+                    <h5>Adresse:</h5>
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Telephone</label>
+                        <input type="number" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3 d-flex justify-content-center gap-3 ">
+                        <button type="button" class="btn w-50 rounded-0 prev ">Precedent</button>
+                        <button type="button" class="btn w-50 rounded-0 next ">Suivant</button>
+                    </div>
+                </div>
+
+                <!-- third step -->
+                <div class="page">
+                    <h5>Naissance:</h5>
+                    <div class="mb-3">
+                        <label class="form-label">Date de Naissance</label>
+                        <input type="date" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Genre</label>
+                        <select class="form-select">
+                            <option value="m">Homme</option>
+                            <option value="f">Femme</option>
+                            <option value="o">Autre</option>
+                        </select>
+                    </div>
+
+                    <div class="mb-3 d-flex justify-content-center gap-3 ">
+                        <button type="button" class="btn w-50 rounded-0 prev ">Precedent</button>
+                        <button type="button" class="btn w-50 rounded-0 next ">Suivant</button>
+                    </div>
+                </div>
+
+                <!-- Last step -->
+                <div class="page">
+                    <h5>Informations de connexion:</h5>
+                    <div class="mb-3">
+                        <label class="form-label">Pseudo</label>
+                        <input type="text" class="form-control" required>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Mot de passe</label>
+                        <input type="password" class="form-control" required>
+                    </div>
+
+                    <div class="mb-3 d-flex justify-content-center gap-3 ">
+                        <button type="button" class="btn w-50 rounded-0 prev ">Precedent</button>
+                        <button class="btn w-50  rounded-0 submit">S'inscrire</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>
